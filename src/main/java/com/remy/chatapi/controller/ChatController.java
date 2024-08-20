@@ -17,14 +17,14 @@ public class ChatController {
     private final OpenAIService openAIService;
     private final SolarService solarService;
 
-    @PostMapping("/openai")
+    @PostMapping("/askOpenAi")
     public ResponseEntity<String> chatWithOpenAI(@RequestBody String message){
         System.out.println("input data -> "+message);
         String response = openAIService.sendMessage(message);
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("/solar")
+    @PostMapping("/askSolar")
     public ResponseEntity<String> chatWithSolar(@RequestBody String message) {
         String response = solarService.sendMessage(message);
         return ResponseEntity.ok(response);
